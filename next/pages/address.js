@@ -21,18 +21,21 @@ class Address extends Component {
   };
   
   
-
+//Sets current winner and gets its current value and address into a state
   async componentDidMount() {
     const votersCount = await factory.methods.getVotersCount().call()
     let topVoter = await factory.methods.topBalances(0).call(); 
     this.setState({votersCount: votersCount, winnerAddr:topVoter.addr, winnerBalance: topVoter.balance })
     if (!window.ethereum) return alert("Please install Metamask");
     const accounts = await window.ethereum.request({ method: 'eth_requestAccounts'});
+    
+   //Gets current account and balance
     this.setState({myAddress: accounts[0]});
     const myBalance = await factory.methods.balance(accounts[0]).call();
     this.setState({ myBalance });
   }
 
+  //CAll the events from the smart contract, the events keep record of the transactions hash and the value, this is filtered by address
   getTx = async (event) => {
     event.preventDefault();
 
