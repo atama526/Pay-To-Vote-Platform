@@ -18,6 +18,9 @@ Using Infura provider, the front end connects with the Ropsten test Ethereum Net
 
 ### How to use it? 
 
+Access: https://alejandro-trial-project.tk.co/
+Database data API: https://alejandro-trial-project.tk.co/express/
+
 In order to use the app you must have a Metamask account with ether on Ropsten test network 
 http://www.herongyang.com/Ethereum/MetaMask-Extension-Add-Ropsten-Test-Network.html
  
