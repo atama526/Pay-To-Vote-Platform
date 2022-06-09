@@ -4,6 +4,9 @@ import factory from '../../contract/factory';
 import Link from 'next/link'
 import Router from 'next/router'
 
+
+//This component has the configuration and the data needed for the app layout
+
 const Header = ({childToParent}) => {
 	
 	const [defaultAccount, setDefaultAccount] = useState('0');
@@ -12,7 +15,8 @@ const Header = ({childToParent}) => {
 	useEffect( () => {
 		connectWallet();
 	})
-
+	
+//Connects the app to a Metamask wallet and displays the error in case No metamask is installed 
 	const connectWallet = async () => {
 		
 		if (!window.ethereum) return alert("Please install Metamask");
@@ -24,6 +28,7 @@ const Header = ({childToParent}) => {
 		childToParent(accounts[0], balance);
 	}
 
+	//Is called in case there is a change of account in metamask. Reloads the page  to access the updated values throughout the app
 	const accountChange = async (newAccount) => {
 		setDefaultAccount(newAccount[0])
 		const newBalance = await factory.methods.balance(newAccount[0]).call();
