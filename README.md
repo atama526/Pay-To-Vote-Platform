@@ -5,7 +5,8 @@ Dapp where users can contribute ropsten eth to try to be the winner of a voting 
 
 ## How it works?
 
-Using Infura provider, the front end connects with the Ropsten test Ethereum Network, allowing users to send ether to the contract to be the winner of the vote.   
+Using Infura provider, the front end connects with the Ropsten test Ethereum Network, allowing users to send ether to the contract to be the winner of the vote.
+Here you are able to see the current winners, set your name, your own account details (Address, name, balance) and also check the transactions you have done with a link to etherscan info.  
 
 ### How to use it? 
 
