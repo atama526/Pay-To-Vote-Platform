@@ -8,7 +8,7 @@ Dapp where users can contribute ropsten eth to try to be the winner of a voting 
 Using Infura provider, the front end connects with the Ropsten test Ethereum Network, allowing users to send ether to the contract to be the winner of the vote.
 - In this app you are able to see the current winners, , your own account details (Address, name, balance). You can set your name so it´s linked to your address and also check the transactions you have done with a link to etherscan info.  
 
-### Check code by folder
+### code by folder
 
 - **contract:** - Folder Includes - Solidity Smart Contract, contract byteCode and ABI, Web3 instance of the contract and Tests using Hardhat & chai.
 - **express:** - Express API routes and server configuration
