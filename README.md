@@ -35,12 +35,11 @@ This project used the following technologies:
 - MongoDB for data storage
     - [Usage examples](https://www.mongodb.com/docs/drivers/node/current/usage-examples/) — categorized by type of operation
 - Web3.js, Ethers.js, and [useDapp](https://usedapp-docs.netlify.app/docs) for Web3 integration
-- [yup](https://github.com/jquense/yup) for Javascript data validation
 - [mongo-express](https://github.com/mongo-express/mongo-express) for admin database viewing
 - Nginx to serve everything over SSL
 - Docker & docker-compose for environment management
 - Python 3 for tooling scripts (local run, deployment, test kickoffs)
-- [Mocha](https://mochajs.org/) & [Puppeteer](https://github.com/puppeteer/puppeteer) for automated testing
+- [Mocha](https://mochajs.org/) for automated testing
 - Solidity for smart contracts
     - [Solidity by example](https://docs.soliditylang.org/en/latest/solidity-by-example.html)
 - [Hardhat](https://hardhat.org/) for smart contract deployments
