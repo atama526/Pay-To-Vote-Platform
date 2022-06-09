@@ -9,7 +9,7 @@ import web3 from '../../contract/web3';
 import instance from '../../contract/factory';
 import Router from 'next/router'
 
-
+//flag that helps to display a button in the section to show your account details everytime the page is refreshed
 let buttonFlag = true
 
 
@@ -25,12 +25,14 @@ class Enter extends Component {
 		name1: ""		
 	};
 
+	//gets the current account and keeps it in the "address" state
 	async componentDidMount() {
 		const accounts = await web3.eth.getAccounts();
 		const address = accounts[0];
 		this.setState({address})
 	}
 	
+	//Calls the api documents and filters it to display the name saved in the DB for the current account
 	checkDetails = async (event) => {
 		event.preventDefault()
 		if (!window.ethereum) return alert("Please install Metamask");
@@ -66,7 +68,8 @@ class Enter extends Component {
 		this.setState({loading: false})
 		window.location.href="/address"
 	}	
-		
+	
+	//Calls the routes to save a name of the user in the db. The account addressed is also saved in the mongo DB
 	saveText = async event => {
     	event.preventDefault()
     	if (!window.ethereum) return alert("Please install Metamask");
