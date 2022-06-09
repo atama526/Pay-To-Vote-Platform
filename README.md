@@ -6,7 +6,7 @@ Dapp where users can contribute ropsten eth to try to be the winner of a voting 
 ## How it works?
 
 Using Infura provider, the front end connects with the Ropsten test Ethereum Network, allowing users to send ether to the contract to be the winner of the vote.
-- In this app you are able to see the current winners, , your own account details (Address, name, balance). You can set your name so it´s linked to your address and also check the transactions you have done with a link to etherscan info.  
+- Using the Dapp front end you will be able to see the current winners of the vote, also your own account details (Address, name, balance). You have the option to set your name so it´s linked to your address and finally you can also check the transactions you have sent to the smart contract with a link to etherscan info.  
 
 ### code by folder
 
