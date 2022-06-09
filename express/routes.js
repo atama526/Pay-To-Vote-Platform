@@ -6,11 +6,12 @@ import { getText } from '../lib/misc.js'
 
 export const routes = Router()
 
+//Requests all the documents stored on the DB
 routes.route('/').get(async (req, res) => {
   res.json({ Users_registered : await getText() })
 })
 
-
+//Creates a document on "test" MongoDB with ID, Address, and NAme
 routes.route('/save').post(async (req, res) => {
   let db = await getDb()
   await db.collection('test').updateOne(
