@@ -71,35 +71,39 @@ export default function Home(props) {
 export async function getServerSideProps() {
   
   //Call a variable from the contract that keeps track of how many different accounts have voted
-  const votersCount = await factory.methods.getVotersCount().call()
+  
+  const votersCount = await instance.methods.getVotersCount().call()
+  
   
     //calls the topBalances function and returns the firs 4 (winners) 
     let topVoters = await Promise.all(
       Array(parseInt(votersCount)).fill().map((element, index) => {
-        return factory.methods.topBalances(index).call();
+        return instance.methods.topBalances(index).call();
       })
     );
   topVoters.push({balance:"0", addr:"0x000000"},{balance:"0", addr:"0x000000"},{balance:"0", addr:"0x000000"},{balance:"0", addr:"0x0000000"});
-  let addrs = topVoters.map(a => a.addr.substr(0,8));
-
+  let addrs = topVoters.map(a => a.addr);
+  
   return {
     props: {
       votersCount: votersCount,
       winnerAddress: topVoters[0].addr,
-      winnerName: await getName(addrs[0].toLowerCase()),
+      winnerName: await getName(addrs[0]),
       winnerBalance: topVoters[0].balance,
       secondAddress: topVoters[1].addr,
-      secondName: await getName(addrs[1].toLowerCase()),
+      secondName: await getName(addrs[1]),
       secondBalance: topVoters[1].balance,
       thirdAddress: topVoters[2].addr,
-      thirdName: await getName(addrs[2].toLowerCase()),
+      thirdName: await getName(addrs[2]),
       thirdBalance: topVoters[2].balance,
       forthAddress: topVoters[3].addr,
-      fourthName: await getName(addrs[3].toLowerCase()),
+      fourthName: await getName(addrs[3]),
       forthBalance: topVoters[3].balance
+      
       
       
     }
   }
+    
+  
 }
-
