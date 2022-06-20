@@ -73,12 +73,17 @@ class Enter extends Component {
 	saveText = async event => {
     	event.preventDefault()
     	if (!window.ethereum) return alert("Please install Metamask");
-    	const accounts = await window.ethereum.request({ method: 'eth_requestAccounts'});   	    	   	
+    	const accounts = await window.ethereum.request({ method: 'eth_requestAccounts'}); 
+    	const signature = await web3.eth.personal.sign(this.state.name, accounts[0])
+    	console.log(signature); 
+    	const addressReco = await web3.eth.personal.ecRecover(this.state.name,signature)
+    	    	   	
     	const res = await fetch('/express/save', {
       		body: JSON.stringify({
       			id: accounts[0].substr(0,8),
         		name: this.state.name,
-        		address: accounts[0] 
+        		address: accounts[0],
+        		signature: signature 
       		}),
       		headers: {
         		'Content-Type': 'application/json'
